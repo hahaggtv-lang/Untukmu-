@@ -1,2 +1,0 @@
-# Untukmu-
-Ya atau tidak 

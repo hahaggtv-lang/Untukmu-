@@ -1,0 +1,139 @@
+# Untukmu-
+Ya atau tidak 
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Untuk Kamu 🤍</title>
+  <style>
+    * { box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #eee;
+      overflow: hidden;
+    }
+    .bg-shape {
+      position: absolute;
+      border-radius: 50px;
+    }
+    .blue { background: #4aa3ff; width: 180px; height: 260px; top: 60px; left: 40px; }
+    .pink { background: #d81b7d; width: 280px; height: 340px; bottom: -40px; left: -40px; }
+    .dots {
+      position: absolute;
+      right: 40px;
+      top: 80px;
+      display: grid;
+      grid-template-columns: repeat(3, 18px);
+      gap: 12px;
+    }
+    .dots span {
+      width: 18px;
+      height: 18px;
+      background: #f3d9f0;
+      border-radius: 50%;
+    }
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+    .slide.active { display: flex; }
+    .card {
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(6px);
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 420px;
+      width: 100%;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+    h1 { margin-top: 0; font-size: 24px; color: #333; }
+    p { color: #555; }
+    .btn {
+      margin: 10px;
+      padding: 12px 26px;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .yes { background: #ff4d8d; color: white; }
+    .no { background: #ddd; }
+    video {
+      width: 100%;
+      border-radius: 16px;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-shape blue"></div>
+  <div class="bg-shape pink"></div>
+  <div class="dots">
+    <span></span><span></span><span></span>
+    <span></span><span></span><span></span>
+    <span></span><span></span><span></span>
+  </div>
+
+  <!-- Slide 1 -->
+  <div class="slide active" id="slide1">
+    <div class="card">
+      <h1>Apakah kamu bahagia hari ini? 🤍</h1>
+      <button class="btn yes" onclick="goToSlide(2)">Iya</button>
+      <button class="btn no" onclick="exitSite()">Tidak</button>
+    </div>
+  </div>
+
+  <!-- Slide 2 -->
+  <div class="slide" id="slide2">
+    <div class="card">
+      <h1>Apakah kamu masih bersemangat? ✨</h1>
+      <button class="btn yes" onclick="goToSlide(3)">Iya</button>
+      <button class="btn no" onclick="exitSite()">Tidak</button>
+    </div>
+  </div>
+
+  <!-- Slide 3 -->
+  <div class="slide" id="slide3">
+    <div class="card">
+      <h1>Apakah kamu sayang pada dirimu sendiri? 💗</h1>
+      <button class="btn yes" onclick="goToSlide(4)">Iya</button>
+      <button class="btn no" onclick="exitSite()">Tidak</button>
+    </div>
+  </div>
+
+  <!-- Slide Video -->
+  <div class="slide" id="slide4">
+    <div class="card">
+      <h1>Video ini untukmu 🤍</h1>
+      <video id="videoPlayer" controls autoplay>
+        Browser kamu tidak mendukung video.
+      </video>
+    </div>
+  </div>
+
+  <script>
+    function goToSlide(n) {
+      document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+      document.getElementById('slide' + n).classList.add('active');
+      if(n === 4){
+        const video = document.getElementById('videoPlayer');
+        video.src = 'lv_0_20260208222949.mp4';
+        video.load();
+        video.play().catch(()=>{});
+      }
+    }
+    function exitSite() {
+      document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100vh;text-align:center;"><h2>Terima kasih sudah jujur pada perasaanmu 🤍<br>Jaga dirimu baik‑baik ya.</h2></div>';
+    }
+  </script>
+
+</body>
+</html>
