@@ -107,14 +107,20 @@
     </div>
   </div>
 
-  <!-- Slide Video -->
+    <!-- Slide Video -->
   <div class="slide" id="slide4">
     <div class="card">
       <h1>Video ini untukmu 🤍</h1>
-      <video id="videoPlayer" controls autoplay src="https://drive.google.com/file/d/1S4dYCXwgznL-QNt5kZyv8GKK4anGPBBc/view?usp=drivesdk"></video>
+      <iframe 
+        id="videoPlayer"
+        width="100%" 
+        height="315" 
+        src="https://drive.google.com/file/d/1S4dYCXwgznL-QNt5kZyv8GKK4anGPBBc/preview" 
+        allow="autoplay" 
+        style="border-radius: 16px; margin-top: 15px;">
+      </iframe>
     </div>
   </div>
-
   <script>
     function goToSlide(n) {
       document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
