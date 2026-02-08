@@ -63,10 +63,11 @@
     }
     .yes { background: #ff4d8d; color: white; }
     .no { background: #ddd; }
-    video {
+    iframe {
       width: 100%;
       border-radius: 16px;
       margin-top: 15px;
+      border: none;
     }
   </style>
 </head>
@@ -107,33 +108,27 @@
     </div>
   </div>
 
-    <!-- Slide Video -->
+  <!-- Slide Video -->
   <div class="slide" id="slide4">
     <div class="card">
       <h1>Video ini untukmu 🤍</h1>
       <iframe 
         id="videoPlayer"
-        width="100%" 
         height="315" 
         src="https://drive.google.com/file/d/1S4dYCXwgznL-QNt5kZyv8GKK4anGPBBc/preview" 
-        allow="autoplay" 
-        style="border-radius: 16px; margin-top: 15px;">
+        allow="autoplay">
       </iframe>
     </div>
   </div>
+
   <script>
     function goToSlide(n) {
       document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
       document.getElementById('slide' + n).classList.add('active');
-      if(n === 4){
-        const video = document.getElementById('videoPlayer');
-        video.src = 'https://drive.google.com/file/d/1S4dYCXwgznL-QNt5kZyv8GKK4anGPBBc/view?usp=drivesdk';
-        video.load();
-        video.play().catch(()=>{});
-      }
     }
+    
     function exitSite() {
-      document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100vh;text-align:center;"><h2>Terima kasih sudah jujur pada perasaanmu 🤍<br>Jaga dirimu baik-baik ya.</h2></div>';
+      document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100vh;text-align:center;"><h2>Terima kasih sudah jujur pada perasaanmu 🤍<br>Jaga dirimu baik-baik ya 💖</h2></div>';
     }
   </script>
 
